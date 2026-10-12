@@ -1,0 +1,8 @@
+name: greet
+on: push
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: greet
+        run: echo "hello from github"
