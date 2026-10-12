@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout-repo
-        run: actions/checkout@v7
+        uses: actions/checkout@v7
       - name: kernel details
         run: uname -r
       - name: listing file in repo
