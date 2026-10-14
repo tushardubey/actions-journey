@@ -1,0 +1,16 @@
+name: journey
+on: push
+env:
+  APP_NAME: journey
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      LOG_LEVEL: info
+    steps:
+      - name: show app name
+        run: echo "$APP_NAME" && echo "$LOG_LEVEL"
+      - name: override LOG_LEVEL
+        env:
+          LOG_LEVEL: debug
+        run: echo "$LOG_LEVEL"
