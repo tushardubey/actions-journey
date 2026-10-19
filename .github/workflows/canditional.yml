@@ -1,15 +1,24 @@
-name: canditional
+
+name: conditional
+
 on: workflow_dispatch
+
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
       - name: run tests
         run: echo "running test cases"
+
       - name: deploy
-        if: github.ref == 'refs/heads/dev'
-        run: echo "deployment is inprogress"
+        run: |
+          if [ "$GITHUB_REF" = "refs/heads/dev" ]; then
+            echo "Deployment is in progress"
+          else
+            echo "Deployment failed: branch is not dev"
+            exit 1
+          fi
+
       - name: report failure
         if: failure()
-        run: echo "deployment is failed"
-             exit 1
+        run: echo "Deployment failed. Please check the branch."
