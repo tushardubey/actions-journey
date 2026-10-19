@@ -1,0 +1,11 @@
+name: canditional
+on: workflow_dispatch
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run tests
+        run: echo "running test cases"
+      - name: deploy
+        if: ${{github.ref == refs/heads/main}}  
+        run: echo "deployment is inprogress"
