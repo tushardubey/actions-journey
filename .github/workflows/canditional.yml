@@ -7,5 +7,8 @@ jobs:
       - name: run tests
         run: echo "running test cases"
       - name: deploy
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/dev'
         run: echo "deployment is inprogress"
+        if: failure()
+        run: "deployment is failed"
+        run: exit 1
