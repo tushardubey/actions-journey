@@ -7,5 +7,5 @@ jobs:
       - name: run tests
         run: echo "running test cases"
       - name: deploy
-        if: ${{github.ref == refs/heads/main}}  
+        if: github.ref == 'refs/heads/main'
         run: echo "deployment is inprogress"
