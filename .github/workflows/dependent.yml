@@ -11,4 +11,4 @@ jobs:
     needs: job1
     steps:
       - name: deployment
-        echo: echo "running deployment"
+        run: echo "running deployment"
