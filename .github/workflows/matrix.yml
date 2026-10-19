@@ -15,5 +15,5 @@ jobs:
       with:
         python-version: ${{matrix.python-version}}
     - name: python version print
-      run: python3 -c
+      run: python --version
       
