@@ -1,0 +1,19 @@
+name: matrix
+on: workflow_dispatch
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: python installation
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{matrix.python-version}}
+    - name: python version print
+      run: python3 -c
+      
