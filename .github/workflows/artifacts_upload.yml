@@ -1,0 +1,17 @@
+name: artifacts_upload
+on: workflow_dispatch
+
+jobs:
+  artifacts_upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: create build report
+        run: date +%f > report.txt
+      - name: Upload Build Output
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-report    
+          path: report.txt               # Path to the directory or file
+          retention-days: 5
